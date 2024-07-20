@@ -205,7 +205,7 @@
 .input__group {
   display: grid;
   gap: 1rem;
-}
+} 
 
 .input__group label {
   font-weight: 600;
@@ -226,6 +226,24 @@
 
 .input__group input::placeholder {
   color: var(--text-light);
+}
+.about {
+  position: relative;
+  isolation: isolate;
+}
+.about::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right:0;
+  height: 75%;
+  width: 100%;
+  background-color: url("");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: -1;
 }
 
 .about {
@@ -257,7 +275,6 @@
   display: grid;
   gap: 1rem;
 }
-
 .about__card {
   height: 100%;
   padding: 2rem;
@@ -345,7 +362,7 @@
   color: var(--text-dark);
 }
 
-.room__card__details p {
+.room__card__details p{
   color: var(--text-light);
 }
 
@@ -374,8 +391,7 @@
   background-color: var(--secondary-color);
   z-index: -1;
 }
-
-.intro__container {
+.intro__container{
   display: grid;
   gap: 4rem 2rem;
 }
