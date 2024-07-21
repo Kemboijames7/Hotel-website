@@ -651,6 +651,18 @@
   color: var(--text-light);
   text-align: center;
 }
+.top{
+  text-decoration: none;
+  padding:2px;
+  color: var(--text-light);
+  border-radius: 10px;
+  align-self: flex-end;
+  position: sticky;
+  background: linear-gradient(rgb(49, 64, 49) 100vh, red 0);
+}
+
+
+
 @media (width > 480px) {
   .about__grid {
     grid-template-columns: repeat(2, 1fr);
