@@ -49,11 +49,7 @@ ScrollReveal().reveal(".news__card", {
   interval: 500,
 });
 
-
-
-
  
-
 const lazyImages = document.querySelectorAll('img[data-src]');
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -66,3 +62,61 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 lazyImages.forEach(image => observer.observe(image));
+
+
+document.addEventListener('keydown', function(e) {
+  
+  if (e.key === 'Tab') {
+      const focusedElement = document.activeElement;
+      const focusableElements = document.querySelectorAll('input, textarea, button');
+      const index = Array.prototype.indexOf.call(focusableElements, focusedElement);
+
+      if (index > -1) {
+          const nextElement = focusableElements[index + 1] || focusableElements[0];  
+          nextElement.focus();
+          e.preventDefault(); 
+      }
+  }
+
+  else if (e.key === 'Enter') {
+      const focusedElement = document.activeElement;
+
+     
+      if (focusedElement.tagName === 'INPUT' || focusedElement.tagName === 'TEXTAREA') {
+          const form = focusedElement.closest('form');
+          if (form) {
+              form.submit();
+          }
+      }
+      
+      else if (focusedElement.tagName === 'BUTTON') {
+          focusedElement.click();
+      }
+  }
+});
+
+const scrollTopButton = document.querySelector('.scroll_top');
+
+window.addEventListener('scroll', () => {
+  // Get the total height of the document and the height of the viewport
+  const totalHeight = document.documentElement.scrollHeight;
+  const viewportHeight = window.innerHeight;
+
+  const showButtonAt = totalHeight * 0.25;
+
+  if (window.scrollY > showButtonAt) {
+      scrollTopButton.style.display = 'block';  
+  } else {
+      scrollTopButton.style.display = 'none';   
+  }
+});
+
+
+scrollTopButton.addEventListener('click', () => {
+  window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' 
+      
+  });
+});

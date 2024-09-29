@@ -815,3 +815,26 @@
     gap: 2rem;
   }
 }
+.scroll_top.icon-visible {
+  position: fixed;
+  right: 20px; 
+ bottom: 20px; 
+  padding: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid #ffa500;
+  color: orange;
+  cursor: pointer;
+  text-align: center;
+  z-index: 99999;  
+  transition: all .1s ease-in-out;
+}
+
+.scroll_top.icon-visible:hover {
+  background: rgb(241, 214, 163);
+  color: black;
+}
