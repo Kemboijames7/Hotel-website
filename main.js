@@ -1,3 +1,40 @@
+ // JavaScript for theme toggle 
+ const dropdownContainer = document.querySelector('.dropdown-container');
+ const dropdownButton = document.querySelector('.dropdown-button');
+ const lightModeLink = document.getElementById('lightMode');
+ const darkModeLink = document.getElementById('darkMode');
+ const body = document.body;
+ 
+ // Toggle dropdown visibility
+ dropdownButton.addEventListener('click', () => {
+     dropdownContainer.classList.toggle('active');
+    
+ });
+ 
+ // Change theme to light mode
+ lightModeLink.addEventListener('click', (event) => {
+     event.preventDefault(); 
+     body.classList.remove('dark-mode'); 
+     localStorage.setItem('theme', 'light'); 
+ 
+ });
+ 
+ // Change theme to dark mode
+ darkModeLink.addEventListener('click', (event) => {
+     event.preventDefault(); 
+     body.classList.add('dark-mode'); 
+     localStorage.setItem('theme', 'dark'); 
+     console.log('Theme changed to Dark Mode');
+ });
+ 
+ // Apply saved theme on page load
+ if (localStorage.getItem('theme') === 'dark') {
+     body.classList.add('dark-mode');
+ } else {
+     body.classList.remove('dark-mode'); 
+ }
+
+
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
