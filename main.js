@@ -157,3 +157,29 @@ scrollTopButton.addEventListener('click', () => {
       
   });
 });
+
+
+//Scroll Spy
+const sections = document.querySelectorAll('h4');  
+const navLinksb = document.querySelectorAll('.nav_links li');  
+
+window.addEventListener('scroll', () => {
+  let current = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY; // Get the top position relative to the viewport
+    const sectionHeight = section.clientHeight;
+
+    // Check if the section is currently in view
+    if (window.scrollY >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinksb.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
