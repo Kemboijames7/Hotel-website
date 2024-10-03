@@ -183,3 +183,11 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+
+var typed = new Typed('.input__group', {
+  strings: ["First sentence.", "Second sentence."],
+  typeSpeed: 50,
+  backSpeed: 50,
+  loop: true
+});
